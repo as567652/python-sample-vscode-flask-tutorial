@@ -11,10 +11,6 @@ parameters:
   type: boolean # data type of the parameter; required
   default: false
 
-variables:
-- name: my_var
-  value: 100
-
 pool:
   vmImage: ubuntu-latest
 strategy:
@@ -46,4 +42,4 @@ steps:
 - script: |
     echo ${{ parameters.yesNo }}
 - script: |
-    echo ${{ my_var }}
+    echo $(my_var)
