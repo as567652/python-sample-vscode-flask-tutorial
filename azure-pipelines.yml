@@ -6,6 +6,15 @@
 trigger:
 - master
 
+parameters:
+- name: yesNo # name of the parameter; required
+  type: boolean # data type of the parameter; required
+  default: false
+
+variables:
+- name: my_var
+  value: 100
+
 pool:
   vmImage: ubuntu-latest
 strategy:
@@ -34,3 +43,7 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+- script: |
+    echo ${{ parameters.yesNo }}
+- script: |
+    echo ${{ my_var }}
